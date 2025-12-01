@@ -22,6 +22,10 @@
         ];
       });
 
+      imports = [
+        inputs.superposition.haskellFlakeProjectModules.output
+      ];
+
       # The base package set (this value is the default)
       # basePackages = pkgs.haskellPackages;
 
@@ -41,6 +45,7 @@
           stan = true;
           # haddock = false;
         };
+        SuperpositionSDK.jailbreak = true;
         /*
         aeson = {
           check = false;

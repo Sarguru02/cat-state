@@ -48,15 +48,19 @@ common shared
   build-depends:
     , aeson
     , async
-    , base          >=4   && <5
+    , base              >=4   && <5
     , data-default
     , directory
     , filepath
+    , http-client
+    , http-client-tls
     , mtl
+    , network-uri
     , optics-core
     , profunctors
-    , relude        >=1.0
+    , relude            >=1.0
     , shower
+    , SuperpositionSDK
     , time
     , with-utf8
 
