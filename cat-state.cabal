@@ -64,9 +64,18 @@ common shared
     , time
     , with-utf8
 
-  hs-source-dirs:     src
   default-language:   GHC2021
 
+library cat-state-lib
+  import: shared
+  exposed-modules:
+    CatState.App
+    CatState.Utils
+  hs-source-dirs: lib
+
 executable cat-state
-  import:  shared
+  import: shared
   main-is: Main.hs
+  build-depends:
+    cat-state-lib
+  hs-source-dirs: app
