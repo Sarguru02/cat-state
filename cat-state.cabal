@@ -60,7 +60,7 @@ common shared
     , profunctors
     , relude            >=1.0
     , shower
-    , SuperpositionSDK
+    , superposition-open-feature-provider
     , time
     , with-utf8
 

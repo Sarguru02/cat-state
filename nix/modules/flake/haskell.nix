@@ -38,6 +38,7 @@
         aeson.source = "1.5.0.0" # Hackage version
         shower.source = inputs.shower; # Flake input
         */
+        monad-logger-aeson.source = "0.4.1.4";
       };
 
       # Add your package overrides here
@@ -46,7 +47,6 @@
           stan = true;
           # haddock = false;
         };
-        SuperpositionSDK.jailbreak = true;
         /*
         aeson = {
           check = false;
