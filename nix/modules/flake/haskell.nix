@@ -52,6 +52,10 @@
           check = false;
         };
         */
+        SuperpositionSDK.jailbreak = true;
+        monad-logger-aeson.check = false;
+        superposition-bindings.jailbreak = true;
+        superposition-open-feature-provider.jailbreak = true;
       };
 
       # What should haskell-flake add to flake outputs?
