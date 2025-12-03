@@ -15,7 +15,6 @@
       projectRoot = builtins.toString (lib.fileset.toSource {
         inherit root;
         fileset = lib.fileset.unions [
-          (root + /lib)
           (root + /app)
           (root + /cat-state.cabal)
           (root + /LICENSE)
@@ -52,7 +51,6 @@
         };
         */
         SuperpositionSDK.jailbreak = true;
-        monad-logger-aeson.check = false;
         superposition-bindings.jailbreak = true;
         superposition-open-feature-provider.jailbreak = true;
       };

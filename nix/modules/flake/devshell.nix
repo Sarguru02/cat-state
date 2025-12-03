@@ -2,7 +2,7 @@
 # You mostly want the `packages` option below.
 
 {
-  perSystem = { config, pkgs, ... }: {
+  perSystem = { config, inputs', pkgs, ... }: {
     # Default shell.
     devShells.default = pkgs.mkShell {
       name = "cat-state";
@@ -12,6 +12,8 @@
       inputsFrom = [
         config.haskellProjects.default.outputs.devShell # See ./nix/modules/haskell.nix
         config.pre-commit.devShell # See ./nix/modules/formatter.nix
+        inputs'.superposition.devShells.haskell
+        inputs'.superposition.devShells.default
       ];
 
       # Packages to be added to Nix devShell go here.
