@@ -65,7 +65,8 @@ common shared
     , time
     , with-utf8
     , containers
-
+  extra-libraries:
+    superposition_core
   default-language:   GHC2021
 
 executable cat-state

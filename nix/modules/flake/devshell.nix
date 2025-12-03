@@ -13,7 +13,6 @@
         config.haskellProjects.default.outputs.devShell # See ./nix/modules/haskell.nix
         config.pre-commit.devShell # See ./nix/modules/formatter.nix
         inputs'.superposition.devShells.haskell
-        inputs'.superposition.devShells.default
       ];
 
       # Packages to be added to Nix devShell go here.
