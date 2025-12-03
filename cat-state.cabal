@@ -61,8 +61,10 @@ common shared
     , relude            >=1.0
     , shower
     , superposition-open-feature-provider
+    , open-feature
     , time
     , with-utf8
+    , containers
 
   default-language:   GHC2021
 
