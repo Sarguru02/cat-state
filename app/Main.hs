@@ -1,7 +1,7 @@
 module Main where
 
 import qualified Data.Text as T
-import           Data.OpenFeature.SuperpositionProvider (defaultProviderOptions, SuperpositionProviderOptions(..), RefreshOptions(..), newSuperpositionProvider, SuperpositionProvider)
+import           Data.OpenFeature.SuperpositionProvider (defaultProviderOptions, SuperpositionProviderOptions(..), RefreshOptions(..), newSuperpositionProvider, SuperpositionProvider, LogLevel(..))
 import qualified Network.URI as Net
 import qualified Data.OpenFeature.FeatureProvider as P
 import qualified Data.OpenFeature.Api as OpenFeature
@@ -13,7 +13,7 @@ import GHC.Conc.IO (threadDelay)
 
 main :: IO ()
 main = do
-  getClient
+  getK1Value
 
 getProvider :: String -> Text -> Text -> Int -> IO (Either Text SuperpositionProvider)
 getProvider uri orgId workspaceId pollTime = do
@@ -25,6 +25,7 @@ getProvider uri orgId workspaceId pollTime = do
                   , workspaceId = workspaceId
                   , endpoint = uriVal
                   , refreshOptions = Poll pollTime
+                  , logLevel = LevelDebug
                   }
       newSuperpositionProvider options
 
@@ -35,14 +36,11 @@ getK1Value = do
     Left err -> putStrLn $ "Error when getting provider: " <> T.unpack err
     Right provider -> do
       !_ <- P.initialize provider EC.defaultContext
-      _ <- OpenFeature.setNamedProvider "CAC" provider
-      threadDelay 3000000
-      _ <- putStrLn $ "Done setting up provider with name"
-      v <- P.resolveIntegerValue provider "k1" getContext
+      threadDelay 10000000
+      OpenFeature.setDefaultProvider provider
+      client <- OpenFeature.createClient
+      v <- OpenFeature.getIntValue client (T.pack "k1") ( Just getContext )
       putStrLn $ show v
-      -- client <- OpenFeature.createClient
-      -- val <- OpenFeature.getBoolValue client "k2" ( Just EC.defaultContext )
-      -- putStrLn $ show val
 
 getContext :: EC.EvaluationContext
 getContext = 
