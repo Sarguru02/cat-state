@@ -7,7 +7,7 @@
     nixos-unified.url = "github:srid/nixos-unified";
     haskell-flake.url = "github:srid/haskell-flake";
     fourmolu-nix.url = "github:jedimahdi/fourmolu-nix";
-    superposition.url = "github:juspay/superposition";
+    superposition.url = "github:juspay/superposition/haskell-provider";
     superposition.inputs.nixpkgs.follows = "nixpkgs";
 
     git-hooks.url = "github:cachix/git-hooks.nix";
